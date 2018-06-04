@@ -23,7 +23,8 @@ class LogsController < ApplicationController
 		  :headers => header
 		)
 
-		$most_recent_search = response["common"]
+		current_user.recent_search = response["common"]
+		current_user.save
 
 		redirect_to root_path
 
