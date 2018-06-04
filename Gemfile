@@ -62,6 +62,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Added Gems
+gem 'devise'
 gem 'jquery-rails'
 gem 'httparty'
 gem 'figaro'
