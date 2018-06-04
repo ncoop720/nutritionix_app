@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root 'logs#index'
 
-  get 'test' => 'logs#test'
-  post 'test' => 'logs#test'
+  get 'search_food' => 'logs#search_food'
+  post 'search_food' => 'logs#search_food'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

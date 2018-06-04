@@ -1,7 +1,16 @@
 <h1>Index Page</h1>
 
-<%= form_tag test_path do %>
-	<%= text_field_tag :term, nil, placeholder: "Enter a food item here" %><br />
-	<%= select_date Date.today %>
-	<%= submit_tag "Search" %>
-<% end %>
+
+<div class="row">
+	<div class="col-md-4">
+		<%= form_tag search_food_path do %>
+			<%= text_field_tag :term, nil, placeholder: "Enter a food item here" %><br />
+			<%= select_date Date.today %>
+			<%= submit_tag "Search" %>
+		<% end %>
+		<%= render 'food_search' %>
+	</div>
+	<div class="col-md-8">
+		
+	</div>
+</div>

@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+.food-list-icon {
+	margin-right: 5px;
+	height: 30px;
+	width: 30px;
+}
+
+.well {
+	background-color: white;
+	margin: 0;
+}
