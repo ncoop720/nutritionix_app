@@ -1,0 +1,21 @@
+<%= form_tag load_dash_path do %>
+	<%= select_date @selected_date %>
+	<%= submit_tag "Load Date" %>
+<% end %>
+
+<table class="table">
+	<tr>
+		<th></th>
+		<th>Name</th>
+		<th>Serving Unit</th>
+		<th>Serving Weight</th>
+	</tr>
+	<% @log.foods.each do |food| %>
+		<tr>
+			<td><%= image_tag("#{food[:thumb]}", class: "food-list-icon") %></td>
+			<td><%= food[:name] %></td>
+			<td><%= food[:serving] %></td>
+			<td><%= food[:grams] %>g</td>
+		</tr>
+	<% end %>
+</table>

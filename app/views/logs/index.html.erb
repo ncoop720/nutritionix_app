@@ -1,16 +1,29 @@
-<h1>Index Page</h1>
-
 
 <div class="row">
 	<div class="col-md-4">
-		<%= form_tag search_food_path do %>
-			<%= text_field_tag :term, nil, placeholder: "Enter a food item here" %><br />
-			<%= select_date Date.today %>
-			<%= submit_tag "Search" %>
-		<% end %>
+		<%= render 'food_search_form' %>
 		<%= render 'food_search' %>
 	</div>
 	<div class="col-md-8">
-		
+		<%= render 'dashboard' %>
+		<!-- <div id="datetimepicker1"></div>
+		<div id="test_stuff"></div> -->
 	</div>
 </div>
+
+<!-- <script>
+	$(function () {
+	  $('#datetimepicker1').datetimepicker({
+	    inline: true,
+	    format: 'YYYY-MM-DD',
+	  });
+	  $("#datetimepicker1").on("dp.change", function (e) {
+	  	var x = e.date;
+	  	var y = $('#datetimepicker1').data('date')
+	  	console.log(x);
+	    console.log(y);
+
+	    $('#test_stuff').html('<%= j (render "dashboard", locals: {greeting: "Hello" }) %>');
+		});
+	});
+</script> -->
