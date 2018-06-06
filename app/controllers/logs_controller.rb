@@ -2,8 +2,9 @@ class LogsController < ApplicationController
 
 	include LogsHelper
 
-	before_action :current_selected_date
 	before_action :set_log
+	before_action :set_log_today, only: [:index]
+
 
 	def search_food
 		query = { 
@@ -30,11 +31,6 @@ class LogsController < ApplicationController
 
 		current_user.save
 
-		# if AJAX
-		# current_selected_date
-		# set_log
-
-		# redirect_back fallback_location: root_path
 	end
 
 	def add_food
@@ -61,7 +57,6 @@ class LogsController < ApplicationController
 
 		calculate_totals(@log.foods)
 
-		# redirect_back fallback_location: root_path
 	end
 
 	def load_dash
@@ -77,8 +72,6 @@ class LogsController < ApplicationController
 		current_user.save
 
 		calculate_totals(@log.foods)
-
-		# redirect_back fallback_location: root_path
 	end
 
 	def remove_food
@@ -97,7 +90,7 @@ class LogsController < ApplicationController
 
 	private
 
-		def current_selected_date
+		def set_log
 
 			if current_user.selected_date.nil?
 				current_user.update(selected_date: Date.today)
@@ -105,14 +98,24 @@ class LogsController < ApplicationController
 			end
 
 			@selected_date = current_user.selected_date
-		end
-
-		def set_log
 
 			if Log.where(date: @selected_date).find_by(user_id: current_user.id).nil?
 				@log = current_user.logs.create(date: @selected_date)
 			else
 				@log = Log.where(date: @selected_date).find_by(user_id: current_user.id)
+			end
+
+			calculate_totals(@log.foods)
+		end
+
+		def set_log_today
+			current_user.update(selected_date: Date.today)
+			current_user.save
+
+			if Log.where(date: Date.today).find_by(user_id: current_user.id).nil?
+				@log = current_user.logs.create(date: Date.today)
+			else
+				@log = Log.where(date: Date.today).find_by(user_id: current_user.id)
 			end
 
 			calculate_totals(@log.foods)
