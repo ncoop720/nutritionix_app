@@ -30,10 +30,15 @@ class LogsController < ApplicationController
 
 		current_user.save
 
-		redirect_back fallback_location: root_path
+		# if AJAX
+		# current_selected_date
+		# set_log
+
+		# redirect_back fallback_location: root_path
 	end
 
 	def add_food
+
 		header = { 
 		  "x-remote-user-id" => "0",
 		  "x-app-id" => ENV['nutritionix_id'],
@@ -54,7 +59,9 @@ class LogsController < ApplicationController
 		@log.foods.push(food_data)
 		@log.save
 
-		redirect_back fallback_location: root_path
+		calculate_totals(@log.foods)
+
+		# redirect_back fallback_location: root_path
 	end
 
 	def load_dash
@@ -71,11 +78,12 @@ class LogsController < ApplicationController
 
 		calculate_totals(@log.foods)
 
-		redirect_back fallback_location: root_path
+		# redirect_back fallback_location: root_path
 	end
 
 	def remove_food
 		food_name = params[:food]
+
 		@log.foods.each do |food|
 			if food[:name]==food_name
 				@log.foods.delete(food)
@@ -84,30 +92,29 @@ class LogsController < ApplicationController
 			end
 		end
 
-		# random = log_arr - [food]
-		# puts random
-		# @log.update(foods: log_arr)
-		# @log.save
-
-		redirect_back fallback_location: root_path
+		calculate_totals(@log.foods)
 	end
 
 	private
 
 		def current_selected_date
+
 			if current_user.selected_date.nil?
 				current_user.update(selected_date: Date.today)
 				current_user.save
 			end
+
 			@selected_date = current_user.selected_date
 		end
 
 		def set_log
+
 			if Log.where(date: @selected_date).find_by(user_id: current_user.id).nil?
 				@log = current_user.logs.create(date: @selected_date)
 			else
 				@log = Log.where(date: @selected_date).find_by(user_id: current_user.id)
 			end
+
 			calculate_totals(@log.foods)
 		end
 

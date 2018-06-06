@@ -2,10 +2,20 @@
 <div class="row">
 	<div class="col-md-4">
 		<%= render 'food_search_form' %>
-		<%= render 'food_search' %>
+		<div id="food_finder" style="display:none"></div>
 	</div>
 	<div class="col-md-8">
-		<%= render 'dashboard' %>
+		<div id="date_form">
+			<%= render 'date_form' %>
+		</div>
+
+		<div id="food_log">
+			<%= render 'food_log' %>
+		</div>
+
+		<div id="nutrient_totals">
+			<%= render 'nutrient_totals' %>
+		</div>
 		<!-- <div id="datetimepicker1"></div>
 		<div id="test_stuff"></div> -->
 	</div>

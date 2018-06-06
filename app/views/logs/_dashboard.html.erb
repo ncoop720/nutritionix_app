@@ -1,66 +1,11 @@
-<%= form_tag load_dash_path do %>
-	<%= select_date @selected_date %>
-	<%= submit_tag "Load Date" %>
-<% end %>
+<div id="date_form">
+	<%= render 'date_form' %>
+</div>
 
-<table class="table">
-	<tr>
-		<th></th>
-		<th>Name</th>
-		<th>Serving Unit</th>
-		<th>Serving Weight</th>
-		<th></th>
-	</tr>
-	<% @log.foods.each do |food| %>
-		<tr>
-			<td><%= image_tag("#{food[:thumb]}", class: "food-list-icon") %></td>
-			<td><%= food[:name] %></td>
-			<td><%= food[:serving] %></td>
-			<td><%= food[:grams] %> g</td>
-			<td><a href=<%= remove_food_path(food: food[:name]) %>><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td>
-		</tr>
-	<% end %>
-</table>
+<div id="food_log">
+	<%= render 'food_log' %>
+</div>
 
-<div class="row">
-	<div class="col-sm-4 col-xs-6">
-		Calories: <%= @cals.round(2) %> kcal<br>
-		Protein: <%= @protein.round(2) %> g<br>
-		Carbs: <%= @carbs.round(2) %> g<br>
-		Sugar: <%= @sugar.round(2) %> g<br>
-		Fiber: <%= @fiber.round(2) %> g<br>
-		Fat: <%= @fat.round(2) %> g<br>
-		Saturated Fat: <%= @sat_fat.round(2) %> g<br>
-		Monounsaturated Fat: <%= @mono_fat.round(2) %> g<br>
-		Polyunsaturated Fat: <%= @poly_fat.round(2) %> g<br>
-		Trans Fat: <%= @trans_fat.round(2) %> g<br>
-		Cholesterol: <%= @chol.round(2) %> mg<br>
-	</div>
-	<div class="col-sm-4 col-xs-6">
-		Vitamin A: <%= @v_a.round(2) %> IU<br>
-		Vitamin B1: <%= @b1.round(2) %> mg<br>
-		Vitamin B2: <%= @b2.round(2) %> mg<br>
-		Vitamin B3: <%= @b3.round(2) %> mg<br>
-		Vitamin B5: <%= @b5.round(2) %> mg<br>
-		Vitamin B6: <%= @b6.round(2) %> mg<br>
-		Vitamin B12: <%= @b12.round(2) %> μg<br>
-		Vitamin C: <%= @v_c.round(2) %> mg<br>
-		Vitamin D: <%= @v_d.round(2) %> IU<br>
-		Vitamin E: <%= @v_e.round(2) %> mg<br>
-		Vitamin K: <%= @v_k.round(2) %> μg<br>
-		Folate: <%= @folate.round(2) %> μg<br>
-	</div>
-	<div class="col-sm-4 col-xs-6">
-		Calcium: <%= @calcium.round(2) %> mg<br>
-		Copper: <%= @copper.round(2) %> mg<br>
-		Fluoride: <%= @fluoride.round(2) %> μg<br>
-		Iron: <%= @iron.round(2) %> mg<br>
-		Magnesium: <%= @magnesium.round(2) %> mg<br>
-		Manganese: <%= @manganese.round(2) %> mg<br>
-		Phosphorus: <%= @phosphorus.round(2) %> mg<br>
-		Potassium: <%= @potassium.round(2) %> mg<br>
-		Selenium: <%= @selenium.round(2) %> μg<br>
-		Sodium: <%= @sodium.round(2) %> mg<br>
-		Zinc: <%= @zinc.round(2) %> mg<br>
-	</div>
+<div id="nutrient_totals">
+	<%= render 'nutrient_totals' %>
 </div>

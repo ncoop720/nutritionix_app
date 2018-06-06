@@ -1,0 +1,18 @@
+<table class="table">
+	<tr>
+		<th></th>
+		<th>Name</th>
+		<th>Serving Unit</th>
+		<th>Serving Weight</th>
+		<th></th>
+	</tr>
+	<% @log.foods.each do |food| %>
+		<tr>
+			<td><%= image_tag("#{food[:thumb]}", class: "food-list-icon") %></td>
+			<td><%= food[:name] %></td>
+			<td><%= food[:serving] %></td>
+			<td><%= food[:grams] %> g</td>
+			<td><%= link_to "", remove_food_path(food: food[:name]), remote: true, class: "glyphicon glyphicon-remove"  %></td>
+		</tr>
+	<% end %>
+</table>

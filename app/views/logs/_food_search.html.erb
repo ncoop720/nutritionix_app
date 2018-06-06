@@ -1,6 +1,6 @@
 
 	<% current_user.recent_search.each do |food| %>
-		<%= link_to add_food_path(term: food["food_name"]) do %>
+		<%= link_to add_food_path(term: food["food_name"]), remote: true do %>
 			<div class="well well-sm">
 				<%= image_tag("#{food['photo']['thumb']}", class: "food-list-icon") %>
 				<%= food["food_name"] %>
