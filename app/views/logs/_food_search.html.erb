@@ -1,4 +1,5 @@
 
+<div class="text-center" id="food-search-table">
 	<% current_user.recent_search.each do |food| %>
 		<%= link_to add_food_path(term: food["food_name"]), remote: true do %>
 			<div class="well well-sm">
@@ -7,3 +8,4 @@
 			</div>
 		<% end %>
 	<% end %>
+</div>

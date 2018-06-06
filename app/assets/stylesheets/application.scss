@@ -18,6 +18,26 @@
 @import 'bootstrap';
 @import 'bootstrap-datetimepicker';
 
+
+a:hover {
+	text-decoration: none;
+}
+
+#food-search-table {
+	padding: 5px;
+	background-color: red;
+	border-radius: 5px;
+}
+
+#food-search-table a {
+	color: black;
+}
+
+#food-search-table a:hover {
+	display: block;
+	opacity: .8;
+}
+
 .food-list-icon {
 	margin-right: 5px;
 	height: 30px;
@@ -27,4 +47,10 @@
 .well {
 	background-color: white;
 	margin: 0;
+	border-radius: 0;
+}
+
+.form-format-width {
+	display: inline-block;
+	max-width: 250px;
 }

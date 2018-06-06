@@ -1,4 +1,6 @@
-<%= form_tag load_dash_path, remote: true do %>
-	<%= select_date @log.date %>
-	<%= submit_tag "Load Date" %>
-<% end %>
+<div class="text-center">
+	<%= form_tag load_dash_path, remote: true do %>
+		<%= select_date @log.date %>
+		<%= submit_tag "Load Date" %>
+	<% end %>
+</div>
