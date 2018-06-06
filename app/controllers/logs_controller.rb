@@ -18,7 +18,7 @@ class LogsController < ApplicationController
 		  "x-app-key" => ENV['nutritionix_key']
 		}
 
-		response = HTTParty.get("https://trackapi.nutritionix.com/v2/search/instant", 
+		response = HTTParty.get("https://trackapi.nutritionix.com/v2/search/instant/", 
 		  :query => query,
 		  :headers => header
 		)
@@ -45,7 +45,7 @@ class LogsController < ApplicationController
 			"query" => params[:term]
 		}
 
-		response = HTTParty.post("https://trackapi.nutritionix.com/v2/natural/nutrients", 
+		response = HTTParty.post("https://trackapi.nutritionix.com/v2/natural/nutrients/", 
 		  :body => body,
 		  :headers => header
 		)
