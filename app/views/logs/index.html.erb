@@ -1,38 +1,26 @@
 
 <div class="row">
 	<div class="col-md-4">
-		<%= render 'food_search_form' %>
-		<div id="food_finder" style="display:none"></div>
+		<div id="food_search_form">
+			<br>
+			<%= render 'food_search_form' %>
+			<div id="food_finder" style="display:none"></div>
+		</div>
+		<br>
 	</div>
 	<div class="col-md-8">
 		<div id="date_form">
+			<br>
 			<%= render 'date_form' %>
+			<br>
 		</div>
-
+		<br>
 		<div id="food_log">
 			<%= render 'food_log' %>
 		</div>
-
+		<br>
 		<div id="nutrient_totals">
 			<%= render 'nutrient_totals' %>
 		</div>
-		<!-- <div id="datetimepicker1"></div>
-		<div id="test_stuff"></div> -->
 	</div>
 </div>
-
-<!-- <script>
-	$(function () {
-	  $('#datetimepicker1').datetimepicker({
-	    inline: true,
-	    format: 'YYYY-MM-DD',
-	  });
-	  $("#datetimepicker1").on("dp.change", function (e) {
-	  	var x = e.date;
-	  	var y = $('#datetimepicker1').data('date')
-	  	console.log(x);
-	    console.log(y);
-
-		});
-	});
-</script> -->

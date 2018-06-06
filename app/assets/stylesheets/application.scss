@@ -18,15 +18,57 @@
 @import 'bootstrap';
 @import 'bootstrap-datetimepicker';
 
+$border-color: black;
+
+body {
+	font-family: 'Sunflower', sans-serif;
+	background-color: white;
+}
 
 a:hover {
 	text-decoration: none;
 }
 
-#food-search-table {
+.login-signup-box {
+	width: 50%;
+	max-width: 400px;
+	min-width: 250px;
+	margin: 0 auto;
 	padding: 5px;
-	background-color: red;
 	border-radius: 5px;
+	border-style: solid;
+	border-color: $border-color;
+	border-width: 3px;
+	box-shadow: 3px 3px 20px 1px $border-color;
+}
+
+.glyphicon-log-out {
+	color: white;
+}
+
+.navbar-default {
+	background-color: red;
+}
+
+.navbar-default .navbar-nav li a {
+    color: white;
+}
+
+.navbar-default .navbar-brand {
+    color: white;
+}
+
+#food_search_form {
+	background-color: white;
+	border-radius: 5px;
+	border-style: solid;
+	border-color: $border-color;
+	border-width: 3px;
+	box-shadow: 3px 3px 20px 1px $border-color;
+}
+
+#food-search-table {
+	background-color: black;
 }
 
 #food-search-table a {
@@ -36,6 +78,33 @@ a:hover {
 #food-search-table a:hover {
 	display: block;
 	opacity: .8;
+}
+
+#date_form {
+	background-color: white;
+	border-radius: 5px;
+	border-style: solid;
+	border-color: $border-color;
+	border-width: 3px;
+	box-shadow: 3px 3px 20px 1px $border-color;
+}
+
+#food_log {
+	background-color: white;
+	border-radius: 5px;
+	border-style: solid;
+	border-color: $border-color;
+	border-width: 3px;
+	box-shadow: 3px 3px 20px 1px $border-color;
+}
+
+#nutrient-section {
+	background-color: white;
+	border-radius: 5px;
+	border-style: solid;
+	border-color: $border-color;
+	border-width: 3px;
+	box-shadow: 3px 3px 20px 1px $border-color;
 }
 
 .food-list-icon {
@@ -52,5 +121,5 @@ a:hover {
 
 .form-format-width {
 	display: inline-block;
-	max-width: 250px;
+	max-width: 240px;
 }

@@ -5,41 +5,31 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link href="https://fonts.googleapis.com/css?family=Sunflower:300" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    
     <!-- Navbar Start -->
     <nav class="navbar navbar-default">
       <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href=<%= root_path %>><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
-        </div>
-
-        <ul class="nav navbar-nav navbar-right">
+        <a class="navbar-brand" href=<%= root_path %>>Nutrient Tracker</a>
+        <div style="float: right">
           <% if user_signed_in? %>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                <%= current_user.email %><span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
-              </ul>
-            </li>
+            <div class="navbar-brand">
+              <%= link_to '', destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out" %>
+            </div>
           <% end %>
-        </ul>
+        </div>
       </div>
     </nav>
-
-
+    <!-- Navbar End -->
 
     <div class="container">
       <%= yield %>
+      <br>
     </div>
   </body>
 </html>

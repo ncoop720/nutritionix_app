@@ -1,6 +1,6 @@
 <div class="text-center">
 	<%= form_tag search_food_path, remote: true do %>
-		<%= text_field_tag :term, nil, placeholder: "Enter a food item here", class: "form-control form-format-width" %>
+		<%= text_field_tag :term, nil, placeholder: "Search for food", class: "form-control form-format-width" %>
 		<%= button_tag "", type: 'submit', class: "glyphicon glyphicon-search" %>
 	<% end %>
 </div>
