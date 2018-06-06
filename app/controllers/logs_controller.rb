@@ -113,10 +113,27 @@ class LogsController < ApplicationController
 		redirect_back fallback_location: root_path
 	end
 
+	def remove_food
+		food_name = params[:food]
+		@log.foods.each do |food|
+			if food[:name]==food_name
+				@log.foods.delete(food)
+				@log.save
+				break
+			end
+		end
+
+		# random = log_arr - [food]
+		# puts random
+		# @log.update(foods: log_arr)
+		# @log.save
+
+		redirect_back fallback_location: root_path
+	end
+
 	private
 
 		def current_selected_date
-			puts "CURRENT_SELECTED_DATE HAS BEEN CALLED"
 			if current_user.selected_date.nil?
 				current_user.update(selected_date: Date.today)
 				current_user.save
@@ -125,7 +142,6 @@ class LogsController < ApplicationController
 		end
 
 		def set_log
-			puts "SET_LOG HAS BEEN CALLED"
 			if Log.where(date: @selected_date).find_by(user_id: current_user.id).nil?
 				@log = current_user.logs.create(date: @selected_date)
 			else

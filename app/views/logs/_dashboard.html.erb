@@ -9,6 +9,7 @@
 		<th>Name</th>
 		<th>Serving Unit</th>
 		<th>Serving Weight</th>
+		<th></th>
 	</tr>
 	<% @log.foods.each do |food| %>
 		<tr>
@@ -16,6 +17,7 @@
 			<td><%= food[:name] %></td>
 			<td><%= food[:serving] %></td>
 			<td><%= food[:grams] %> g</td>
+			<td><a href=<%= remove_food_path(food: food[:name]) %>><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td>
 		</tr>
 	<% end %>
 </table>
