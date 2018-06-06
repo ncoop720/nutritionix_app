@@ -49,46 +49,7 @@ class LogsController < ApplicationController
 		  :headers => header
 		)
 
-		food_data = {
-			name: response["foods"][0]["food_name"],
-			thumb: response["foods"][0]["photo"]["thumb"],
-			serving: response["foods"][0]["serving_unit"],
-			grams: response["foods"][0]["serving_weight_grams"],
-			calories: response["foods"][0]["nf_calories"],
-			fat: response["foods"][0]["nf_total_fat"],
-			sat_fat: response["foods"][0]["nf_saturated_fat"],
-			mono_fat: response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 645}[0]["value"],
-			poly_fat: response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 646}[0]["value"],
-			trans_fat: response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 605}[0]["value"],
-			cholesterol: response["foods"][0]["nf_cholesterol"],
-			protein: response["foods"][0]["nf_protein"],
-			carbs: response["foods"][0]["nf_total_carbohydrate"],
-			sugar: response["foods"][0]["nf_sugars"],
-			fiber: response["foods"][0]["nf_dietary_fiber"],
-			b1: response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 404}[0]["value"],
-			b2: response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 405}[0]["value"],
-			b3: response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 406}[0]["value"],
-			b5: response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 410}[0]["value"],
-			b6: response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 415}[0]["value"],
-			b12: response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 418}[0]["value"],
-			folate: response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 417}[0]["value"],
-			a: response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 318}[0]["value"],
-			c: response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 401}[0]["value"],
-			d: response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 324}[0]["value"],
-			e: response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 323}[0]["value"],
-			k: response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 430}[0]["value"],
-			calcium: response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 301}[0]["value"],
-			iron: response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 303}[0]["value"],
-			magnesium: response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 304}[0]["value"],
-			phosphorus: response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 305}[0]["value"],
-			potassium: response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 306}[0]["value"],
-			sodium: response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 307}[0]["value"],
-			zinc: response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 309}[0]["value"],
-			copper: response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 312}[0]["value"],
-			fluoride: response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 313}[0]["value"],
-			manganese: response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 315}[0]["value"],
-			selenium: response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 317}[0]["value"]
-		}
+		food_data = generate_food_data(response)
 
 		@log.foods.push(food_data)
 		@log.save

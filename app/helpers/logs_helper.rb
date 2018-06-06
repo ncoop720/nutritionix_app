@@ -73,5 +73,59 @@ module LogsHelper
 	    	@selenium += food[:selenium]
     	end
     end
-    
+
+    def food_data_help(var_data)
+    	if var_data != []
+    		return var_data[0]["value"]
+    	else
+    		return 0
+    	end
+    end
+
+    def generate_food_data(response)
+    	food_data = {
+				name: response["foods"][0]["food_name"],
+				thumb: response["foods"][0]["photo"]["thumb"],
+				serving: response["foods"][0]["serving_unit"],
+				grams: response["foods"][0]["serving_weight_grams"],
+				calories: response["foods"][0]["nf_calories"],
+				fat: response["foods"][0]["nf_total_fat"],
+				sat_fat: response["foods"][0]["nf_saturated_fat"],
+				mono_fat: food_data_help(response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 645}),
+				poly_fat: food_data_help(response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 646}),
+				trans_fat: food_data_help(response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 605}),
+				cholesterol: response["foods"][0]["nf_cholesterol"],
+				protein: response["foods"][0]["nf_protein"],
+				carbs: response["foods"][0]["nf_total_carbohydrate"],
+				sugar: response["foods"][0]["nf_sugars"],
+				fiber: response["foods"][0]["nf_dietary_fiber"],
+				b1: food_data_help(response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 404}),
+				b2: food_data_help(response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 405}),
+				b3: food_data_help(response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 406}),
+				b5: food_data_help(response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 410}),
+				b6: food_data_help(response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 415}),
+				b12: food_data_help(response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 418}),
+				folate: food_data_help(response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 417}),
+				a: food_data_help(response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 318}),
+				c: food_data_help(response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 401}),
+				d: food_data_help(response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 324}),
+				e: food_data_help(response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 323}),
+				k: food_data_help(response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 430}),
+				calcium: food_data_help(response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 301}),
+				iron: food_data_help(response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 303}),
+				magnesium: food_data_help(response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 304}),
+				phosphorus: food_data_help(response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 305}),
+				potassium: food_data_help(response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 306}),
+				sodium: food_data_help(response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 307}),
+				zinc: food_data_help(response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 309}),
+				copper: food_data_help(response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 312}),
+				fluoride: food_data_help(response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 313}),
+				manganese: food_data_help(response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 315}),
+				selenium: food_data_help(response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 317})
+			}
+
+			return food_data
+    	
+    end
+
 end
