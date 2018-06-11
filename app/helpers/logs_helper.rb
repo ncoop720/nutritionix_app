@@ -82,23 +82,31 @@ module LogsHelper
     	end
     end
 
+    def food_date_help2(var_data)
+    	if var_data != []
+    		return var_data
+    	else
+    		return 0
+    	end
+    end
+
     def generate_food_data(response)
     	food_data = {
-				name: response["foods"][0]["food_name"],
-				thumb: response["foods"][0]["photo"]["thumb"],
-				serving: response["foods"][0]["serving_unit"],
-				grams: response["foods"][0]["serving_weight_grams"],
-				calories: response["foods"][0]["nf_calories"],
-				fat: response["foods"][0]["nf_total_fat"],
-				sat_fat: response["foods"][0]["nf_saturated_fat"],
+				name: food_date_help2(response["foods"][0]["food_name"]),
+				thumb: food_date_help2(response["foods"][0]["photo"]["thumb"]),
+				serving: food_date_help2(response["foods"][0]["serving_unit"]),
+				grams: food_date_help2(response["foods"][0]["serving_weight_grams"]),
+				calories: food_date_help2(response["foods"][0]["nf_calories"]),
+				fat: food_date_help2(response["foods"][0]["nf_total_fat"]),
+				sat_fat: food_date_help2(response["foods"][0]["nf_saturated_fat"]),
 				mono_fat: food_data_help(response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 645}),
 				poly_fat: food_data_help(response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 646}),
 				trans_fat: food_data_help(response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 605}),
-				cholesterol: response["foods"][0]["nf_cholesterol"],
-				protein: response["foods"][0]["nf_protein"],
-				carbs: response["foods"][0]["nf_total_carbohydrate"],
-				sugar: response["foods"][0]["nf_sugars"],
-				fiber: response["foods"][0]["nf_dietary_fiber"],
+				cholesterol: food_date_help2(response["foods"][0]["nf_cholesterol"]),
+				protein: food_date_help2(response["foods"][0]["nf_protein"]),
+				carbs: food_date_help2(response["foods"][0]["nf_total_carbohydrate"]),
+				sugar: food_date_help2(response["foods"][0]["nf_sugars"]),
+				fiber: food_date_help2(response["foods"][0]["nf_dietary_fiber"]),
 				b1: food_data_help(response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 404}),
 				b2: food_data_help(response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 405}),
 				b3: food_data_help(response["foods"][0]["full_nutrients"].select{|nutrient| nutrient["attr_id"] == 406}),

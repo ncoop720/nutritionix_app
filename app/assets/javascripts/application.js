@@ -17,3 +17,31 @@
 //= require bootstrap-datetimepicker
 //= require activestorage
 //= require_tree .
+
+
+
+// document.addEventListener('DOMContentLoaded', function() {
+//   // do stuff here
+//   $( "#calories" ).keyup(function() {
+// 	  alert( "Handler for .keyup() called." );
+// 	});
+
+// }, false);
+
+
+
+// $( document ).ready(function() {
+
+
+
+
+
+// 	$( "#calories" ).keyup(function() {
+// 	  alert( "Handler for .keyup() called." );
+// 	});
+
+
+
+
+
+});

@@ -5,7 +5,6 @@ class LogsController < ApplicationController
 	before_action :set_log
 	before_action :set_log_today, only: [:index]
 
-
 	def search_food
 		query = { 
 		  "query" => params[:term],
@@ -34,7 +33,6 @@ class LogsController < ApplicationController
 	end
 
 	def add_food
-
 		header = { 
 		  "x-remote-user-id" => "0",
 		  "x-app-id" => ENV['nutritionix_id'],
@@ -78,13 +76,28 @@ class LogsController < ApplicationController
 		food_name = params[:food]
 
 		@log.foods.each do |food|
-			if food[:name]==food_name
+			if food[:name] == food_name
 				@log.foods.delete(food)
 				@log.save
 				break
 			end
 		end
 
+		calculate_totals(@log.foods)
+	end
+
+	def change_calories
+		index = params[:index].to_i
+		calories_old = params[:calories_old].to_f
+		calories = params[:calories].to_f
+
+		puts "$$$$$$$$$$$$$$$$$$$$$$$$$"
+
+		puts "$$$$$$$$$$$$$$$$$$$$$$$$$"
+
+		@log.foods[index][:calories] = calories
+		@log.save
+		
 		calculate_totals(@log.foods)
 	end
 
