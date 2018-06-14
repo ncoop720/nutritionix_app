@@ -90,12 +90,13 @@ class LogsController < ApplicationController
 		index = params[:index].to_i
 		calories_old = params[:calories_old].to_f
 		calories = params[:calories].to_f
+		ratio = calories / calories_old
 
-		puts "$$$$$$$$$$$$$$$$$$$$$$$$$"
-
-		puts "$$$$$$$$$$$$$$$$$$$$$$$$$"
-
-		@log.foods[index][:calories] = calories
+		@log.foods[index].each {|key, value|
+			if key != "name" && key != "thumb"
+				@log.foods[index][key] *= ratio		
+			end
+		}
 		@log.save
 		
 		calculate_totals(@log.foods)

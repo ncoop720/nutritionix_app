@@ -94,7 +94,7 @@ module LogsHelper
     	food_data = {
 				name: food_data_help2(response["foods"][0]["food_name"]),
 				thumb: food_data_help2(response["foods"][0]["photo"]["thumb"]),
-				serving: food_data_help2(response["foods"][0]["serving_unit"]),
+				# serving: food_data_help2(response["foods"][0]["serving_unit"]),
 				grams: food_data_help2(response["foods"][0]["serving_weight_grams"]),
 				calories: food_data_help2(response["foods"][0]["nf_calories"]),
 				fat: food_data_help2(response["foods"][0]["nf_total_fat"]),
