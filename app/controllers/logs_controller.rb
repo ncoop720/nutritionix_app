@@ -102,6 +102,22 @@ class LogsController < ApplicationController
 		calculate_totals(@log.foods)
 	end
 
+	def change_grams
+		index = params[:index].to_i
+		grams_old = params[:grams_old].to_f
+		grams = params[:grams].to_f
+		ratio = grams / grams_old
+
+		@log.foods[index].each {|key, value|
+			if key != "name" && key != "thumb"
+				@log.foods[index][key] *= ratio		
+			end
+		}
+		@log.save
+		
+		calculate_totals(@log.foods)
+	end
+
 	private
 
 		def set_log

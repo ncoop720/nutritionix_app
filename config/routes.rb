@@ -14,5 +14,7 @@ Rails.application.routes.draw do
   post 'remove_food' => 'logs#remove_food'
   get 'change_calories' => 'logs#change_calories'
   post 'change_calories' => 'logs#change_calories'
+  get 'change_grams' => 'logs#change_grams'
+  post 'change_grams' => 'logs#change_grams'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

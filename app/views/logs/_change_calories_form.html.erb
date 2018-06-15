@@ -1,5 +1,5 @@
 <%= form_tag change_calories_path(index: index), remote: true do %>
 	<%= hidden_field_tag :calories_old, food[:calories] %>
-	<%= number_field_tag :calories, food[:calories], min: 0, :step => 0.01, class: "form-control", style: "width: 100px; display: inline-block" %>
+	<%= number_field_tag :calories, food[:calories].round(2), min: 0, :step => 0.01, class: "form-control", style: "width: 100px; display: inline-block" %>
 	<%= submit_tag "Update", class: "btn btn-default" %>
 <% end %>
