@@ -29,7 +29,7 @@ class LogsController < ApplicationController
 		if response.nil?
 			current_user.recent_search = []
 		else
-			current_user.recent_search = response["common"]
+			current_user.recent_search = response["common"].take(10)
 		end
 
 		current_user.save
