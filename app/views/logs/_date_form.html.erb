@@ -1,6 +1,5 @@
 <div class="text-center">
 	<%= form_tag load_dash_path, remote: true do %>
-		<%= select_date @log.date %>
-		<%= submit_tag "Go", class: "btn btn-default" %>
+		<%= select_date @log.date, {}, onchange: "Rails.fire(this.form, 'submit');" %>
 	<% end %>
 </div>
