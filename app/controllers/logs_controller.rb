@@ -5,6 +5,10 @@ class LogsController < ApplicationController
 	before_action :set_log
 	before_action :set_log_today, only: [:index]
 
+	def index
+		
+	end
+
 	def search_food
 		query = { 
 		  "query" => params[:term],
