@@ -96,6 +96,7 @@ a:hover {
 	border-color: $border-color;
 	border-width: 3px;
 	box-shadow: 3px 3px 20px 1px $border-color;
+	overflow-x: scroll;
 }
 
 #nutrient-section {
@@ -124,9 +125,8 @@ a:hover {
 	max-width: 240px;
 }
 
-.glyphicon-remove-circle {
+.glyphicon-remove {
 	vertical-align: middle;
-	font-size: 20px;
 }
 
 .glyphicon-search {
