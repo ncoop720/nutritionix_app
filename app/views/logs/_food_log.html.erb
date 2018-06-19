@@ -1,43 +1,45 @@
-<h1 class="text-center"><%= @log.date.strftime("%A: %B %d, %Y") %></h1>
-<table class="table">
-	<tr>
-		<th></th>
-		<th class="text-center">Name</th>
-		<th class="text-center">Calories (kcal)</th>
-		<th class="text-center">Serving Size (g)</th>
-		<th></th>
-	</tr>
-	<% @log.foods.each_with_index do |food, index| %>
+<div class="container-fluid">
+	<h1 class="text-center"><%= @log.date.strftime("%A: %B %d, %Y") %></h1>
+	<table class="table">
 		<tr>
-			<td class="text-center"><%= image_tag("#{food[:thumb]}", class: "food-list-icon") %></td>
-			<td class="text-center">
-				<!-- Toggle Modal -->
-				<a href="#" data-toggle="modal" data-target="#modal_<%= index %>">
-					<%= food[:name] %>
-				</a>
-				<!-- Modal -->
-				<div class="modal fade" id="modal_<%= index %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-				  <div class="modal-dialog" role="document">
-				    <div class="modal-content">
-				      <div class="modal-header">
-				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				        <h4 class="modal-title" id="myModalLabel"><%= image_tag("#{food[:thumb]}", class: "food-list-icon") %><%= food[:name] %></h4>
-				      </div>
-				      <div class="modal-body">
-				        <%= render 'food_info', food: food %>
-				      </div>
-				      <div class="modal-footer">
-				        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				      </div>
-				    </div>
-				  </div>
-				</div>
-			</td>
-			<td class="text-center"><%= render 'change_calories_form', index: index, food: food %></td>
-			<td class="text-center"><%= render 'change_grams_form', index: index, food: food %></td>
-			<td >
-				<%= link_to "", remove_food_path(food: food[:name]), remote: true, class: "glyphicon glyphicon-remove"  %>
-			</td>
+			<th></th>
+			<th class="text-center">Name</th>
+			<th class="text-center">Calories (kcal)</th>
+			<th class="text-center">Serving Size (g)</th>
+			<th></th>
 		</tr>
-	<% end %>
-</table>
+		<% @log.foods.each_with_index do |food, index| %>
+			<tr>
+				<td class="text-center"><%= image_tag("#{food[:thumb]}", class: "food-list-icon") %></td>
+				<td class="text-center">
+					<!-- Toggle Modal -->
+					<a href="#" data-toggle="modal" data-target="#modal_<%= index %>">
+						<%= food[:name] %>
+					</a>
+					<!-- Modal -->
+					<div class="modal fade" id="modal_<%= index %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+					  <div class="modal-dialog" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					        <h4 class="modal-title" id="myModalLabel"><%= image_tag("#{food[:thumb]}", class: "food-list-icon") %><%= food[:name] %></h4>
+					      </div>
+					      <div class="modal-body">
+					        <%= render 'food_info', food: food %>
+					      </div>
+					      <div class="modal-footer">
+					        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+				</td>
+				<td class="text-center"><%= render 'change_calories_form', index: index, food: food %></td>
+				<td class="text-center"><%= render 'change_grams_form', index: index, food: food %></td>
+				<td >
+					<%= link_to "", remove_food_path(food: food[:name]), remote: true, class: "glyphicon glyphicon-remove"  %>
+				</td>
+			</tr>
+		<% end %>
+	</table>
+</div>

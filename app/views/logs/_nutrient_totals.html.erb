@@ -1,142 +1,144 @@
 <div id="nutrient-section">
-	<h1 class="text-center">Nutrient Totals</h1>
-	<table class="table table-condensed">
-		<tr>
-			<td class="col-xs-6">Calories:</td>
-			<td class="col-xs-6"><%= @cals.round(2) %> kcal</td>
-		</tr>
-		<tr>
-			<td>Protein:</td>
-			<td><%= @protein.round(2) %> g</td>
-		</tr>
-		<tr>
-			<td>Carbs:</td>
-			<td><%= @carbs.round(2) %> g</td>
-		</tr>
-		<tr>
-			<td>Sugar:</td>
-			<td><%= @sugar.round(2) %> g</td>
-		</tr>
-		<tr>
-			<td>Fiber:</td>
-			<td><%= @fiber.round(2) %> g</td>
-		</tr>
-		<tr>
-			<td>Fat:</td>
-			<td><%= @fat.round(2) %> g</td>
-		</tr>
-		<tr>
-			<td>Saturated Fat:</td>
-			<td><%= @sat_fat.round(2) %> g</td>
-		</tr>
-		<tr>
-			<td>Monounsaturated Fat:</td>
-			<td><%= @mono_fat.round(2) %> g</td>
-		</tr>
-		<tr>
-			<td>Polyunsaturated Fat:</td>
-			<td><%= @poly_fat.round(2) %> g</td>
-		</tr>
-		<tr>
-			<td>Trans Fat:</td>
-			<td><%= @trans_fat.round(2) %> g</td>
-		</tr>
-		<tr>
-			<td>Cholesterol:</td>
-			<td><%= @chol.round(2) %> mg</td>
-		</tr>
+	<div class="container-fluid">
+		<h1 class="text-center">Nutrient Totals</h1>
+		<table class="table table-condensed">
+			<tr>
+				<td class="col-xs-6">Calories:</td>
+				<td class="col-xs-6"><%= @cals.round(2) %> kcal</td>
+			</tr>
+			<tr>
+				<td>Protein:</td>
+				<td><%= @protein.round(2) %> g</td>
+			</tr>
+			<tr>
+				<td>Carbs:</td>
+				<td><%= @carbs.round(2) %> g</td>
+			</tr>
+			<tr>
+				<td>Sugar:</td>
+				<td><%= @sugar.round(2) %> g</td>
+			</tr>
+			<tr>
+				<td>Fiber:</td>
+				<td><%= @fiber.round(2) %> g</td>
+			</tr>
+			<tr>
+				<td>Fat:</td>
+				<td><%= @fat.round(2) %> g</td>
+			</tr>
+			<tr>
+				<td>Saturated Fat:</td>
+				<td><%= @sat_fat.round(2) %> g</td>
+			</tr>
+			<tr>
+				<td>Monounsaturated Fat:</td>
+				<td><%= @mono_fat.round(2) %> g</td>
+			</tr>
+			<tr>
+				<td>Polyunsaturated Fat:</td>
+				<td><%= @poly_fat.round(2) %> g</td>
+			</tr>
+			<tr>
+				<td>Trans Fat:</td>
+				<td><%= @trans_fat.round(2) %> g</td>
+			</tr>
+			<tr>
+				<td>Cholesterol:</td>
+				<td><%= @chol.round(2) %> mg</td>
+			</tr>
 
-		<tr>
-			<td>Vitamin A:</td>
-			<td><%= @v_a.round(2) %> IU</td>
-		</tr>
-		<tr>
-			<td>Vitamin B1:</td>
-			<td><%= @b1.round(2) %> mg</td>
-		</tr>
-		<tr>
-			<td>Vitamin B2:</td>
-			<td><%= @b2.round(2) %> mg</td>
-		</tr>
-		<tr>
-			<td>Vitamin B3:</td>
-			<td><%= @b3.round(2) %> mg</td>
-		</tr>
-		<tr>
-			<td>Vitamin B5:</td>
-			<td><%= @b5.round(2) %> mg</td>
-		</tr>
-		<tr>
-			<td>Vitamin B6:</td>
-			<td><%= @b6.round(2) %> mg</td>
-		</tr>
-		<tr>
-			<td>Vitamin B12:</td>
-			<td><%= @b12.round(2) %> μg</td>
-		</tr>
-		<tr>
-			<td>Vitamin C:</td>
-			<td><%= @v_c.round(2) %> mg</td>
-		</tr>
-		<tr>
-			<td>Vitamin D:</td>
-			<td><%= @v_d.round(2) %> IU</td>
-		</tr>
-		<tr>
-			<td>Vitamin E:</td>
-			<td><%= @v_e.round(2) %> mg</td>
-		</tr>
-		<tr>
-			<td>Vitamin K:</td>
-			<td><%= @v_k.round(2) %> μg</td>
-		</tr>
-		<tr>
-			<td>Folate:</td>
-			<td><%= @folate.round(2) %> μg</td>
-		</tr>
-		<tr>
-			<td>Calcium:</td>
-			<td><%= @calcium.round(2) %> mg</td>
-		</tr>
-		<tr>
-			<td>Copper:</td>
-			<td><%= @copper.round(2) %> mg</td>
-		</tr>
-		<tr>
-			<td>Fluoride:</td>
-			<td><%= @fluoride.round(2) %> μg</td>
-		</tr>
-		<tr>
-			<td>Iron:</td>
-			<td><%= @iron.round(2) %> mg</td>
-		</tr>
-		<tr>
-			<td>Magnesium:</td>
-			<td><%= @magnesium.round(2) %> mg</td>
-		</tr>
-		<tr>
-			<td>Manganese:</td>
-			<td><%= @manganese.round(2) %> mg</td>
-		</tr>
-		<tr>
-			<td>Phosphorus:</td>
-			<td><%= @phosphorus.round(2) %> mg</td>
-		</tr>
-		<tr>
-			<td>Potassium:</td>
-			<td><%= @potassium.round(2) %> mg</td>
-		</tr>
-		<tr>
-			<td>Selenium:</td>
-			<td><%= @selenium.round(2) %> μg</td>
-		</tr>
-		<tr>
-			<td>Sodium:</td>
-			<td><%= @sodium.round(2) %> mg</td>
-		</tr>
-		<tr>
-			<td>Zinc:</td>
-			<td><%= @zinc.round(2) %> mg</td>
-		</tr>
-	</table>
+			<tr>
+				<td>Vitamin A:</td>
+				<td><%= @v_a.round(2) %> IU</td>
+			</tr>
+			<tr>
+				<td>Vitamin B1:</td>
+				<td><%= @b1.round(2) %> mg</td>
+			</tr>
+			<tr>
+				<td>Vitamin B2:</td>
+				<td><%= @b2.round(2) %> mg</td>
+			</tr>
+			<tr>
+				<td>Vitamin B3:</td>
+				<td><%= @b3.round(2) %> mg</td>
+			</tr>
+			<tr>
+				<td>Vitamin B5:</td>
+				<td><%= @b5.round(2) %> mg</td>
+			</tr>
+			<tr>
+				<td>Vitamin B6:</td>
+				<td><%= @b6.round(2) %> mg</td>
+			</tr>
+			<tr>
+				<td>Vitamin B12:</td>
+				<td><%= @b12.round(2) %> μg</td>
+			</tr>
+			<tr>
+				<td>Vitamin C:</td>
+				<td><%= @v_c.round(2) %> mg</td>
+			</tr>
+			<tr>
+				<td>Vitamin D:</td>
+				<td><%= @v_d.round(2) %> IU</td>
+			</tr>
+			<tr>
+				<td>Vitamin E:</td>
+				<td><%= @v_e.round(2) %> mg</td>
+			</tr>
+			<tr>
+				<td>Vitamin K:</td>
+				<td><%= @v_k.round(2) %> μg</td>
+			</tr>
+			<tr>
+				<td>Folate:</td>
+				<td><%= @folate.round(2) %> μg</td>
+			</tr>
+			<tr>
+				<td>Calcium:</td>
+				<td><%= @calcium.round(2) %> mg</td>
+			</tr>
+			<tr>
+				<td>Copper:</td>
+				<td><%= @copper.round(2) %> mg</td>
+			</tr>
+			<tr>
+				<td>Fluoride:</td>
+				<td><%= @fluoride.round(2) %> μg</td>
+			</tr>
+			<tr>
+				<td>Iron:</td>
+				<td><%= @iron.round(2) %> mg</td>
+			</tr>
+			<tr>
+				<td>Magnesium:</td>
+				<td><%= @magnesium.round(2) %> mg</td>
+			</tr>
+			<tr>
+				<td>Manganese:</td>
+				<td><%= @manganese.round(2) %> mg</td>
+			</tr>
+			<tr>
+				<td>Phosphorus:</td>
+				<td><%= @phosphorus.round(2) %> mg</td>
+			</tr>
+			<tr>
+				<td>Potassium:</td>
+				<td><%= @potassium.round(2) %> mg</td>
+			</tr>
+			<tr>
+				<td>Selenium:</td>
+				<td><%= @selenium.round(2) %> μg</td>
+			</tr>
+			<tr>
+				<td>Sodium:</td>
+				<td><%= @sodium.round(2) %> mg</td>
+			</tr>
+			<tr>
+				<td>Zinc:</td>
+				<td><%= @zinc.round(2) %> mg</td>
+			</tr>
+		</table>
+	</div>
 </div>
