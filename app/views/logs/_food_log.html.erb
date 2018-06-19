@@ -37,7 +37,7 @@
 				<td class="text-center"><%= render 'change_calories_form', index: index, food: food %></td>
 				<td class="text-center"><%= render 'change_grams_form', index: index, food: food %></td>
 				<td >
-					<%= link_to "", remove_food_path(food: food[:name]), remote: true, class: "glyphicon glyphicon-remove"  %>
+					<%= link_to "", remove_food_path(index: index), remote: true, class: "glyphicon glyphicon-remove"  %>
 				</td>
 			</tr>
 		<% end %>

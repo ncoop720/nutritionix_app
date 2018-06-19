@@ -77,15 +77,8 @@ class LogsController < ApplicationController
 	end
 
 	def remove_food
-		food_name = params[:food]
-
-		@log.foods.each do |food|
-			if food[:name] == food_name
-				@log.foods.delete(food)
-				@log.save
-				break
-			end
-		end
+		@log.foods.delete_at(params[:index].to_i)
+		@log.save
 
 		calculate_totals(@log.foods)
 	end

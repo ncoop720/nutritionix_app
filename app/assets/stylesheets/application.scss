@@ -29,6 +29,12 @@ a:hover {
 	text-decoration: none;
 }
 
+form input[type='number']::-webkit-outer-spin-button,
+form input[type='number']::-webkit-inner-spin-button {
+   -webkit-appearance: none;
+   margin: 0;
+}
+
 .login-signup-box {
 	width: 50%;
 	max-width: 400px;
